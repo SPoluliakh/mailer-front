@@ -8,14 +8,7 @@ export interface ICredentials {
 }
 
 export interface IAuth {
-  message: string;
-  dataUser: {
-    name: string;
-    email: string;
-    token: string;
-    birthday: string;
-    phone: string;
-    avatarURL: string;
-    skype: string;
-  };
+  response: string;
+  status: number;
+  token: string;
 }

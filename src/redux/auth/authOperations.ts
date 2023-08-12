@@ -8,7 +8,7 @@ import {
 import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
-axios.defaults.baseURL = 'http://localhost:3000/api';
+axios.defaults.baseURL = 'http://localhost:4400/api';
 // axios.defaults.baseURL = 'https://your-tasks-hv5t.onrender.com/api';
 
 const setAuthHeader = (token: String): void => {
@@ -24,10 +24,10 @@ export const signIn = createAsyncThunk<
   {
     rejectValue: string;
   }
->('auth/signIn', async (credentials, thunkAPI) => {
+>('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post<IAuth>('/auth/login', credentials);
-    setAuthHeader(data.dataUser.token);
+    setAuthHeader(data.token);
     return data;
   } catch (error: any) {
     if (error.response.status === 401 || error.response.status === 500) {

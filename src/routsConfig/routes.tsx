@@ -31,10 +31,7 @@ export const routes = [
       {
         path: '/login',
         element: (
-          <RestrictedRout
-            redirectTo="/user/calendar"
-            component={<LoginPage />}
-          />
+          <RestrictedRout redirectTo="/user" component={<LoginPage />} />
         ),
       },
 
