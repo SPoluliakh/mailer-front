@@ -9,6 +9,10 @@ declare module 'react-ellipsis-text';
 
 declare module 'react-simple-star-rating';
 
+declare module 'redux-persist/integration/react' {
+  export const PersistGate: any; // Используйте более точные типы, если возможно
+}
+
 // declare module '*.css' ('*.scss') {
 //   const content: Record<string, string>;
 //   export default content;

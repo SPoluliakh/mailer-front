@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { CustomInput } from '../../components/CustomInput/CustomInput';
+import * as SC from './LoginForm.styled';
 
 export const LoginPage = () => {
   const [isPass, setIsPass] = useState(false);
@@ -17,15 +18,17 @@ export const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CustomInput lab={'Name'} type={'text'} />
-      <CustomInput lab={'Password'} type={!isPass ? 'password' : 'text'} />
-      <button onClick={handleClick} type="button">
-        {!isPass ? <FaEye /> : <FaEyeSlash />}
-      </button>
-      <button style={{ display: 'block' }} type="submit">
-        submit
-      </button>
-    </form>
+    <SC.Wrapper>
+      <SC.Form onSubmit={handleSubmit}>
+        <CustomInput lab={'Name'} type={'text'} />
+        <CustomInput lab={'Password'} type={!isPass ? 'password' : 'text'} />
+        <SC.Button onClick={handleClick} type="button">
+          {!isPass ? <FaEye /> : <FaEyeSlash />}
+        </SC.Button>
+        <SC.Button style={{ display: 'block' }} type="submit">
+          submit
+        </SC.Button>
+      </SC.Form>
+    </SC.Wrapper>
   );
 };

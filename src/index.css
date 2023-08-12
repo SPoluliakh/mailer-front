@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* ::selection {
+  color: #ffee00;
+  background-color: #3e85f3;
+} */
+
 body {
   margin: 0;
   font-family: Inter, sans-serif;
@@ -55,4 +60,23 @@ button {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+    padding: 0 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 0 24px;
+  }
 }

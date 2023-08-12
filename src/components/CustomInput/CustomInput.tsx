@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import * as SC from './CustomInput.styled';
 
 interface Props {
   lab: string;
@@ -13,15 +14,15 @@ export const CustomInput = ({ lab, type }: Props) => {
     setValue(value);
   };
   return (
-    <label>
+    <SC.Label>
       {lab}
-      <input
+      <SC.Input
         name={lab}
         type={type}
         value={value}
         onChange={handleInputChange}
         autoComplete="off"
       />
-    </label>
+    </SC.Label>
   );
 };
