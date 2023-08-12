@@ -26,9 +26,6 @@ import { ReactComponent as SlickArrowNext } from './icons/slick-arrow-next.svg';
 import { ReactComponent as SlickArrowPrev } from './icons/slick-arrow-prev.svg';
 
 import register from './register.png';
-import rocket from './rocket.png';
-import goose from './goose.png';
-import motivation from './motivation.png';
 
 import register2x from './register@2x.png';
 
