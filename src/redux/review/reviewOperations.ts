@@ -1,21 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { RootState } from '../store';
-import {
-  IReview,
-  IReviewApi,
-  IReviewToSend,
-} from '../../helpers/interfaces/reviewApiInterface/reviewApiInterface';
+import { IEmail } from '../../helpers/interfaces/emailApiInterface/emailApiInterface';
 
-// interface IData {
-//   lang: string;
-// }
-
-export const reviewsApi = createApi({
-  reducerPath: 'reviews',
+export const emailApi = createApi({
+  reducerPath: 'emails',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:3000/api/tasks',
-    baseUrl: 'https://your-tasks-hv5t.onrender.com/api/reviews',
+    baseUrl: 'http://localhost:4400/api/partners',
     prepareHeaders: (headers, { getState }) => {
       const token: string | null = (getState() as RootState).auth.token;
       if (token) {
@@ -26,26 +17,18 @@ export const reviewsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['reviews'],
+  tagTypes: ['emails'],
   endpoints: builder => ({
-    fetchReviews: builder.query<IReview[] | [], null>({
-      query: () => ({
-        method: 'GET',
-        url: `/`,
-      }),
-      transformResponse: (response: IReviewApi) => response.rewiew,
-      providesTags: ['reviews'],
-    }),
-    addReview: builder.mutation<IReview, IReviewToSend>({
-      query: review => ({
+    addEmail: builder.mutation<IEmail, { email: string }>({
+      query: email => ({
         method: 'POST',
-        url: '/',
-        body: review,
+        url: '/new',
+        body: email,
       }),
 
-      invalidatesTags: ['reviews'],
+      invalidatesTags: ['emails'],
     }),
   }),
 });
 
-export const { useAddReviewMutation, useFetchReviewsQuery } = reviewsApi;
+export const { useAddEmailMutation } = emailApi;

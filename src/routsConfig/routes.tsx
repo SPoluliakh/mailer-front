@@ -36,7 +36,7 @@ export const routes = [
       },
 
       {
-        path: 'user',
+        path: '/user',
         element: <PrivateRout redirectTo="/login" component={<UserPage />} />,
       },
       { path: '*', element: <NotFoundPage /> },
