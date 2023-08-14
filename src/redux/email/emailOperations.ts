@@ -6,7 +6,7 @@ import { IEmail } from '../../helpers/interfaces/emailApiInterface/emailApiInter
 export const emailApi = createApi({
   reducerPath: 'emails',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4400/api/partners',
+    baseUrl: 'https://mailer-back.onrender.com/partners',
     prepareHeaders: (headers, { getState }) => {
       const token: string | null = (getState() as RootState).auth.token;
       if (token) {
