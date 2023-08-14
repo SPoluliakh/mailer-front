@@ -17,6 +17,13 @@ const UserPage = lazy(() =>
   }))
 );
 
+const LogPage = lazy(() =>
+  import('../pages/LogPage/LogPage').then(module => ({
+    ...module,
+    default: module.LogPage,
+  }))
+);
+
 const NotFoundPage = lazy(() =>
   import('../pages/NotFoundPage/NotFoundPage').then(module => ({
     ...module,
@@ -38,6 +45,10 @@ export const routes = [
       {
         path: '/user',
         element: <PrivateRout redirectTo="/login" component={<UserPage />} />,
+      },
+      {
+        path: '/log',
+        element: <PrivateRout redirectTo="/login" component={<LogPage />} />,
       },
       { path: '*', element: <NotFoundPage /> },
     ],

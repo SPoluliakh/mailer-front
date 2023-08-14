@@ -10,9 +10,10 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { emailApi } from './review/reviewOperations';
+import { emailApi } from './email/emailOperations';
 import { authSlice } from './auth/authReducer';
 import { themeSlice } from './theme/themeReducer';
+import { visitorsApi } from './logVisitirs/logVisitirs';
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ const themePersistConfig = {
 export const store = configureStore({
   reducer: {
     [emailApi.reducerPath]: emailApi.reducer,
+    [visitorsApi.reducerPath]: visitorsApi.reducer,
     [authSlice.name]: persistReducer(authPersistConfig, authSlice.reducer)!,
     [themeSlice.name]: persistReducer(themePersistConfig, themeSlice.reducer)!,
   },
@@ -39,6 +41,7 @@ export const store = configureStore({
     }),
 
     emailApi.middleware,
+    visitorsApi.middleware,
   ],
 });
 

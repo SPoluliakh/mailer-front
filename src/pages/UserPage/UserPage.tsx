@@ -1,6 +1,6 @@
 import { FormEvent } from 'react';
 import { CustomInput } from '../../components/CustomInput/CustomInput';
-import { useAddEmailMutation } from '../../redux/review/reviewOperations';
+import { useAddEmailMutation } from '../../redux/email/emailOperations';
 import * as SC from './UserPage.styled';
 import { Loader } from '../../components/Loader/Loader';
 

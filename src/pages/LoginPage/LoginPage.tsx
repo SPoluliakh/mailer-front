@@ -34,9 +34,9 @@ export const LoginPage = () => {
       <SC.Form onSubmit={handleSubmit}>
         <CustomInput lab={'Name'} type={'text'} />
         <CustomInput lab={'Password'} type={!isPass ? 'password' : 'text'} />
-        <SC.Button onClick={handleClick} type="button">
-          {!isPass ? <FaEye /> : <FaEyeSlash />}
-        </SC.Button>
+        <SC.InnerButton onClick={handleClick} type="button">
+          {!isPass ? <FaEye size={28} /> : <FaEyeSlash size={28} />}
+        </SC.InnerButton>
         <SC.Button style={{ display: 'block' }} type="submit">
           submit
         </SC.Button>
